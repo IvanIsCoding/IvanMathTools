@@ -162,7 +162,7 @@ class SegundoGrau(object):
 class SegundoGrauDesconhecido(SegundoGrau):
 	"""Descobre a função que origina a parábola a partir de seus pontos"""
 		
-		def __init__(self, xv, x1, y1, x2, y2):
+	def __init__(self, xv, x1, y1, x2, y2):
 			self.vertice_x = xv
 			self.xx1 = x1
 			self.y1 = y1
@@ -178,7 +178,7 @@ class SegundoGrauDesconhecido(SegundoGrau):
 			self.x2 = self.baskara(self.a, self.b, self.c, self.delta)[1]
 			self.vertice_y = self.calcular_vertice(self.a, self.b, self.delta)[1]
 
-		def print_funcao(self):
+	def print_funcao(self):
 			print "A única Função Polinomial do 2° Grau com Vértice em (%s, %s) cuja parábola passa pelos pontos (%s, %s) e (%s, %s) é a função %s" % (str(beautiful(self.vertice_x)), str(beautiful(self.vertice_y)), str(beautiful(self.xx1)), str(beautiful(self.y1)), str(beautiful(self.xx2)), str(beautiful(self.y2)), self.funcao)
 
 class Juros(object):

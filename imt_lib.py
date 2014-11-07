@@ -2,13 +2,13 @@
 
 from math import pi
 
-ver_num = 0.9
-sub_ver = 3
+ver_num = 1.0
+sub_ver = 0
 ver_info = """
 --------------------
-Ivan Math Tools v0.9.3
+Ivan Math Tools v1.0
 
-Todo programador tem que começar de algum lugar
+Todo programador tem que começar de algum lugar.
 --------------------
 """
 

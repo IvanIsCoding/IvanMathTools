@@ -8,7 +8,7 @@ ver_info = """
 --------------------
 Ivan Math Tools v1.0
 
-Todo programador tem que começar de algum lugar.
+Todo programador tem que começar de algum lugar
 --------------------
 """
 
@@ -160,15 +160,16 @@ class SegundoGrau(object):
 
 
 class SegundoGrauDesconhecido(SegundoGrau):
-	"""Descobre a função que origina a parábola a partir de seus pontos"""
+	"""Descobre a função que origina a parábola a partir de seus pontos e por meio do vértice, que transforma a resolução em um sistema de primeiro grau resolvido pelo método da adição"""
 		
-	def __init__(self, xv, x1, y1, x2, y2):
+	def __init__(self, xv, yv, x1, y1, x2, y2):
 			self.vertice_x = xv
+			self.vertice_y = yv
 			self.xx1 = x1
 			self.y1 = y1
 			self.xx2 = x2
 			self.y2 = y2
-			self.a = (self.y1 - self.y2) / float(self.xx1 ** 2 - self.xx2 ** 2 - 2 * self.vertice_x * self.xx1 + 2 * self.vertice_x *self.xx2)
+			self.a = (self.y1 - self.vertice_y) / float(self.xx1 ** 2 + self.vertice_x ** 2 - 2 * self.vertice_x * self.xx1)
 			self.b = -2 * self.a * self.vertice_x
 			self.c = self.y1 - self.a * self.xx1 ** 2 - self.b * self.xx1
 			self.delta = self.calcular_delta(self.a, self.b, self.c)
@@ -176,7 +177,6 @@ class SegundoGrauDesconhecido(SegundoGrau):
 			self.funcao = self.funcao_trabalhando(self.a, self.b, self.c)
 			self.x1 = self.baskara(self.a, self.b, self.c, self.delta)[0]
 			self.x2 = self.baskara(self.a, self.b, self.c, self.delta)[1]
-			self.vertice_y = self.calcular_vertice(self.a, self.b, self.delta)[1]
 
 	def print_funcao(self):
 			print "A única Função Polinomial do 2° Grau com Vértice em (%s, %s) cuja parábola passa pelos pontos (%s, %s) e (%s, %s) é a função %s" % (str(beautiful(self.vertice_x)), str(beautiful(self.vertice_y)), str(beautiful(self.xx1)), str(beautiful(self.y1)), str(beautiful(self.xx2)), str(beautiful(self.y2)), self.funcao)
@@ -301,8 +301,8 @@ class Circle(object):
 		self.area = self.calcular_area(self.raio)
 		self.diametro = self.raio * 2
 		self.tipo = "círculo"
-		self.sarea = str(beautiful(self.raio ** 2))
-		self.sperimetro = str(beautiful(self.raio * 2))
+		self.sarea = str(diferente(beautiful(self.raio ** 2)))
+		self.sperimetro = str(diferente(beautiful(self.raio * 2)))
 		self.unidade = unidade
 	
 	def print_considerando(self):
@@ -313,6 +313,8 @@ class Circle(object):
 		"""Exibe o círculo em que estamos trabalhando"""
 		if self.tipo == "círculo":	
 			print "Estamos trabalhando com um círculo com raio %s%s" % (str(beautiful(self.raio)), self.unidade)
+		elif self.tipo == "setor":
+			print "Estamos trabalhando com um setor círcular de raio %s%s e ângulo %sº" % (str(beautiful(self.raio)), self.unidade, str(beautiful(self.angle)))
 		else:
 			print "Os círculos do cilindro tem raio de %s%s" % (str(beautiful(self.raio)), self.unidade)
 	
@@ -320,6 +322,8 @@ class Circle(object):
 		"""Exibe o périmetro do círculo"""
 		if self.tipo == "círculo":	
 			print "Este círculo tem perimetro de %sπ %s ≅ %s%s" % (self.sperimetro, self.unidade, str(beautiful(self.perimetro)), self.unidade)
+		elif self.tipo == "setor":
+			print "Este setor circular tem perimetro de %sπ %s + %s%s ≅ %s%s" % (self.sperimetro, self.unidade, str(beautiful(self.diametro)), self.unidade, str(beautiful(self.perimetro)), self.unidade)
 		else:
 			print "Os círculos do cilindro tem perimetro de %sπ %s ≅ %s%s" % (self.sperimetro, self.unidade, str(beautiful(self.perimetro)), self.unidade)
 	
@@ -327,9 +331,25 @@ class Circle(object):
 		"""Exibe a área do círculo"""
 		if self.tipo == "círculo":	
 			print "Este círculo tem área de %sπ %s² ≅ %s%s²" % (self.sarea, self.unidade, str(beautiful(self.area)), self.unidade)
+		elif self.tipo == "setor":
+			print "Este círculo tem área de %sπ %s² ≅ %s%s²" % (self.sarea, self.unidade, str(beautiful(self.area)), self.unidade)
 		else:
 			print "Os círculo do cilindro tem área de %sπ %s² ≅ %s%s²" % (self.sarea, self.unidade, str(beautiful(self.area)), self.unidade)
 
+
+class SetorCircular(Circle):
+	"""Cria um setor circular baseado em um círculo com raio 'x' e ângulo 'y' e seus atributos"""
+
+	def __init__(self, raio, angulo, unidade):
+		self.angle = angulo
+		self.raio = raio
+		self.diametro = self.raio * 2
+		self.perimetro = self.calcular_perimetro(self.raio) * (self.angle / 360.0) + self.diametro
+		self.area = self.calcular_area(self.raio) * (self.angle / 360.0)
+		self.tipo = "setor"
+		self.sarea = str(diferente(beautiful(self.raio ** 2 * self.angle / 360.0)))
+		self.sperimetro = str(diferente(beautiful(self.raio * 2 * self.angle / 360.0)))
+		self.unidade = unidade
 
 class Cilindro(Circle):
 	"""Cria um cilindro com raio 'x' e altura 'y' e seus atributos + atributos herdados do círculo"""
@@ -353,8 +373,8 @@ class Cilindro(Circle):
 		self.volume = self.calcular_volume(self.area, self.altura)
 		self.total = self.calcular_perimetro_total(self.raio, self.altura)
 		self.tipo = "cilindro"
-		self.sarea = str(beautiful(self.raio ** 2))
-		self.sperimetro = str(beautiful(self.raio * 2))
+		self.sarea = str(diferente(beautiful(self.raio ** 2)))
+		self.sperimetro = str(diferente(beautiful(self.raio * 2)))
 		self.svolume = str(beautiful(float(self.sarea) * self.altura))
 		self.sperimetro_total = str(beautiful(float(self.sperimetro) * self.altura + (float(self.sarea) * 2) ))
 		self.unidade = unidade

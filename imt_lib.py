@@ -162,24 +162,22 @@ class SegundoGrau(object):
 class SegundoGrauDesconhecido(SegundoGrau):
 	"""Descobre a função que origina a parábola a partir de seus pontos e por meio do vértice, que transforma a resolução em um sistema de primeiro grau resolvido pelo método da adição"""
 		
-	def __init__(self, xv, yv, x1, y1, x2, y2):
-			self.vertice_x = xv
-			self.vertice_y = yv
-			self.xx1 = x1
-			self.y1 = y1
-			self.xx2 = x2
-			self.y2 = y2
-			self.a = (self.y1 - self.vertice_y) / float(self.xx1 ** 2 + self.vertice_x ** 2 - 2 * self.vertice_x * self.xx1)
-			self.b = -2 * self.a * self.vertice_x
-			self.c = self.y1 - self.a * self.xx1 ** 2 - self.b * self.xx1
-			self.delta = self.calcular_delta(self.a, self.b, self.c)
-			self.raiz = self.calcular_raiz_de_delta(self.delta)
-			self.funcao = self.funcao_trabalhando(self.a, self.b, self.c)
-			self.x1 = self.baskara(self.a, self.b, self.c, self.delta)[0]
-			self.x2 = self.baskara(self.a, self.b, self.c, self.delta)[1]
+	def __init__(self, xv, yv, x1, y1):
+		self.vertice_x = xv
+		self.vertice_y = yv
+		self.xx1 = x1
+		self.y1 = y1
+		self.a = (self.y1 - self.vertice_y) / float(self.xx1 ** 2 + self.vertice_x ** 2 - 2 * self.vertice_x * self.xx1)
+		self.b = -2 * self.a * self.vertice_x
+		self.c = self.y1 - self.a * self.xx1 ** 2 - self.b * self.xx1
+		self.delta = self.calcular_delta(self.a, self.b, self.c)
+		self.raiz = self.calcular_raiz_de_delta(self.delta)
+		self.funcao = self.funcao_trabalhando(self.a, self.b, self.c)
+		self.x1 = self.baskara(self.a, self.b, self.c, self.delta)[0]
+		self.x2 = self.baskara(self.a, self.b, self.c, self.delta)[1]
 
 	def print_funcao(self):
-			print "A única Função Polinomial do 2° Grau com Vértice em (%s, %s) cuja parábola passa pelos pontos (%s, %s) e (%s, %s) é a função %s" % (str(beautiful(self.vertice_x)), str(beautiful(self.vertice_y)), str(beautiful(self.xx1)), str(beautiful(self.y1)), str(beautiful(self.xx2)), str(beautiful(self.y2)), self.funcao)
+		print "A única Função Polinomial do 2° Grau com Vértice em (%s, %s) cuja parábola passa pelo ponto (%s, %s) é a função %s" % (str(beautiful(self.vertice_x)), str(beautiful(self.vertice_y)), str(beautiful(self.xx1)), str(beautiful(self.y1)), self.funcao)
 
 class Juros(object):
 	"""Por meio dos valores dos capitais, tempo, interesse e tipo calcula os juros"""

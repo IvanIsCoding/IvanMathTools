@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from imt_lib import PrimeiroGrau, SegundoGrau, Juros, Circle, Cilindro, TrianguloPascal, PrimeiroGrauDesconhecido, SegundoGrauDesconhecido, ver_info, print_linha, beautiful
+from imt_lib import PrimeiroGrau, SegundoGrau, Juros, Circle, Cilindro, TrianguloPascal, PrimeiroGrauDesconhecido, SegundoGrauDesconhecido, SetorCircular, ver_info, print_linha, beautiful
 from prime_lib import print_primo, print_semiprimo, print_primos_ate, print_semiprimos_ate, print_primeiros_primos, print_primeiros_semiprimos, lib_info, print_mersenne
 from imt_resources import print_fatorial, print_e_fatorial, print_media, print_mediana
 
@@ -48,11 +48,10 @@ while True:
 			print_linha(), raw_funcao.print_funcao(), raw_funcao.print_forma(), raw_funcao.print_corta(), raw_funcao.print_situacao(), print_linha()
 		elif deseja == 4:
 			xv = float(raw_input("Qual o valor de x no Vértice?\n> "))
+			yv = float(raw_input("Qual o valor de y no Vértice?\n> "))
 			x1 = float(raw_input("Qual o valor de x no 1º ponto?\n> "))
 			y1 = float(raw_input("Qual o valor de y no 1º ponto?\n> "))
-			x2 = float(raw_input("Qual o valor de x no 2º ponto?\n> "))
-			y2 = float(raw_input("Qual o valor de y no 2º ponto?\n> "))
-			raw_funcao = SegundoGrauDesconhecido(xv, x1, y1, x2, y2)
+			raw_funcao = SegundoGrauDesconhecido(xv, yv, x1, y1)
 			print_linha(),raw_funcao.print_funcao(), raw_funcao.print_concavidade(), raw_funcao.print_delta(), raw_funcao.print_raiz(), raw_funcao.print_resolucao(), raw_funcao.print_corta_eixo_x(), raw_funcao.print_corta_eixo_y(), raw_funcao.print_vertice(), print_linha(), raw_funcao.print_sinais() ,print_linha()
 		else:
 			print "Opção invalida"
@@ -108,6 +107,7 @@ while True:
 	elif user_entry == "circle" :
 		print "-- Digite 1 se deseja trabalhar com círculos"
 		print "-- Digite 2 se deseja trabalhar com cilindros"
+		print "-- Digite 3 se deseja trabalhar com setores circulares"
 		deseja = float(raw_input('> '))
 		if deseja == 1:
 			raio = float(raw_input("Insira o raio do círculo\n> "))
@@ -120,6 +120,12 @@ while True:
 			unidade = raw_input('Unidade de medida\n> ').lower()
 			my_obj = Cilindro(raio, altura, unidade)
 			print_linha(), my_obj.print_considerando(), my_obj.print_trabalhando(), my_obj.print_perimetro(), my_obj.print_area(), my_obj.print_area_lateral(),my_obj.print_volume(), my_obj.print_perimetro_total(), print_linha()
+		elif deseja == 3:
+			raio = float(raw_input("Insira o raio do setor circular\n> "))
+			angulo = float(raw_input("Insira o ângulo do setor circular em º\n> "))
+			unidade = raw_input('Unidade de medida\n> ').lower()
+			my_obj = SetorCircular(raio, angulo, unidade)
+			print_linha(), my_obj.print_considerando(), my_obj.print_trabalhando(), my_obj.print_perimetro(), my_obj.print_area(), print_linha()
 		else:
 			print "Opção invalida"
 	elif user_entry == "pascal":

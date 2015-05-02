@@ -32,13 +32,13 @@ while True:
 			a = float(raw_input("Qual o valor de a?\n> "))
 			b = float(raw_input("Qual o valor de b?\n> "))
 			raw_funcao = PrimeiroGrau(a, b)
-			print_linha(), raw_funcao.print_funcao(), raw_funcao.print_forma(), raw_funcao.print_corta(), raw_funcao.print_situacao(), print_linha()
+			print_linha(), raw_funcao.print_funcao(), raw_funcao.print_forma(), raw_funcao.print_corta(), raw_funcao.print_situacao(), raw_funcao.print_inversa() ,print_linha()
 		elif deseja == 2:
 			a = float(raw_input("Qual o valor de a?\n> "))
 			b = float(raw_input("Qual o valor de b?\n> "))
 			c = float(raw_input("Qual o valor de c?\n> "))
 			raw_funcao = SegundoGrau(a, b, c)
-			print_linha(),raw_funcao.print_funcao(), raw_funcao.print_concavidade(), raw_funcao.print_delta(), raw_funcao.print_raiz(), raw_funcao.print_resolucao(), raw_funcao.print_corta_eixo_x(), raw_funcao.print_corta_eixo_y(), raw_funcao.print_vertice(), print_linha(), raw_funcao.print_sinais(), raw_funcao.print_inversa() ,print_linha() 
+			print_linha(),raw_funcao.print_funcao(), raw_funcao.print_concavidade(), raw_funcao.print_delta(), raw_funcao.print_raiz(), raw_funcao.print_resolucao(), raw_funcao.print_corta_eixo_x(), raw_funcao.print_corta_eixo_y(), raw_funcao.print_vertice(), print_linha(), raw_funcao.print_sinais() ,print_linha() 
 		elif deseja == 3:
 			x1 = float(raw_input("Qual o valor de x no 1º ponto?\n> "))
 			y1 = float(raw_input("Qual o valor de y no 1º ponto?\n> "))

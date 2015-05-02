@@ -260,7 +260,10 @@ class PrimeiroGrau(object):
 			print "Se x < %s ⇒  ƒ(x) < 0\nSe x = %s ⇒  ƒ(x) = 0\nSe x > %s ⇒  ƒ(x) > 0" % (str(beautiful(self.zero)), str(beautiful(self.zero)), str(beautiful(self.zero)))
 		else:
 			print "Se x < %s ⇒  ƒ(x) > 0\nSe x = %s ⇒  ƒ(x) = 0\nSe x > %s ⇒  ƒ(x) < 0" % (str(beautiful(self.zero)), str(beautiful(self.zero)), str(beautiful(self.zero)))
-
+	
+	def print_inversa(self):
+		"Exibe a inversa da função"
+		print "A inversa da função é %s" % (self.funcao_trabalhando(1.0/float(self.a),-1.0*float(self.b)/float(self.a)))
 
 class PrimeiroGrauDesconhecido(PrimeiroGrau):
 	"""Descobre o valor de a e b da função a partir de um sistema pelo método da adição"""

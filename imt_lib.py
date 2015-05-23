@@ -124,7 +124,7 @@ class SegundoGrau(object):
 		elif self.delta > 0:
 			print "Estamos trabalhando com a equação 0%s , que tem duas soluções: %s e %s" % (self.funcao[5:], str(beautiful(self.x1)), str(beautiful(self.x2)))
 		else:
-			print "Estamos trabalhando com a equação 0%s , que não tem solução pois x∌ℝ" % self.funcao[5:]
+			print "Estamos trabalhando com a equação 0%s , que não tem solução pois x∄ℝ" % self.funcao[5:]
 	
 	def print_corta_eixo_x(self):
 		"""Exibe onde a parábola corta o eixo y"""
@@ -146,17 +146,17 @@ class SegundoGrau(object):
 	def print_sinais(self):
 		"""Exibe as condições do valor de y na função"""
 		if self.a > 0 and self.delta == 0:
-			print "y = 0 ⇔  x = %s\ny > 0 ⇔  ∀ x∈ℝ / x ≠ %s\ny < 0 ⇔  x∌ℝ" % (str(beautiful(self.x1)), str(beautiful(self.x1)))
+			print "y = 0 ⇔  x = %s\ny > 0 ⇔  ∀ x∈ℝ / x ≠ %s\ny < 0 ⇔  x∄ℝ" % (str(beautiful(self.x1)), str(beautiful(self.x1)))
 		elif self.a < 0 and self.delta == 0:
-			print "y = 0 ⇔  x = %s\ny > 0  ⇔  x∌ℝ\ny < 0 ⇔  ∀ x∈ℝ / x ≠ %s" % (str(beautiful(self.x1)), str(beautiful(self.x1)))
+			print "y = 0 ⇔  x = %s\ny > 0  ⇔  x∄ℝ\ny < 0 ⇔  ∀ x∈ℝ / x ≠ %s" % (str(beautiful(self.x1)), str(beautiful(self.x1)))
 		elif self.a > 0 and self.delta > 0:
 			print "y = 0 ⇔  x = %s ou x = %s\ny > 0 ⇔  x < %s ou x > %s\ny < 0 ⇔  %s < x < %s" % (str(beautiful(self.x1)), str(beautiful(self.x2)), str(beautiful(self.x2)), str(beautiful(self.x1)), str(beautiful(self.x2)), str(beautiful(self.x1)))
 		elif self.a < 0 and self.delta > 0:
 			print "y = 0 ⇔  x = %s ou x = %s\ny > 0 ⇔  %s < x < %s\ny < 0 ⇔  x < %s ou x > %s" % (str(beautiful(self.x1)), str(beautiful(self.x2)), str(beautiful(self.x1)), str(beautiful(self.x2)), str(beautiful(self.x1)), str(beautiful(self.x2)))
 		elif self.a > 0 and self.delta < 0:
-			print "y = 0 ⇔  x∌ℝ\ny > 0 ⇔  ∀ x∈ℝ\ny < 0 ⇔  x∌ℝ"
+			print "y = 0 ⇔  x∄ℝ\ny > 0 ⇔  ∀ x∈ℝ\ny < 0 ⇔  x∄ℝ"
 		else:
-			print "y = 0 ⇔  x∌ℝ\ny > 0 ⇔  x∌ℝ\ny < 0 ⇔  ∀ x∈ℝ"
+			print "y = 0 ⇔  x∄ℝ\ny > 0 ⇔  x∄ℝ\ny < 0 ⇔  ∀ x∈ℝ"
 
 
 class SegundoGrauDesconhecido(SegundoGrau):

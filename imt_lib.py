@@ -146,17 +146,17 @@ class SegundoGrau(object):
 	def print_sinais(self):
 		"""Exibe as condições do valor de y na função"""
 		if self.a > 0 and self.delta == 0:
-			print "y = 0 ⇒  x = %s\ny > 0 ⇒  ∀ x∈ℝ / x ≠ %s\ny < 0 ⇒  x∌ℝ" % (str(beautiful(self.x1)), str(beautiful(self.x1)))
+			print "y = 0 ⇔  x = %s\ny > 0 ⇔  ∀ x∈ℝ / x ≠ %s\ny < 0 ⇔  x∌ℝ" % (str(beautiful(self.x1)), str(beautiful(self.x1)))
 		elif self.a < 0 and self.delta == 0:
-			print "y = 0 ⇒  x = %s\ny > 0  ⇒  x∌ℝ\ny < 0 ⇒  ∀ x∈ℝ / x ≠ %s" % (str(beautiful(self.x1)), str(beautiful(self.x1)))
+			print "y = 0 ⇔  x = %s\ny > 0  ⇔  x∌ℝ\ny < 0 ⇔  ∀ x∈ℝ / x ≠ %s" % (str(beautiful(self.x1)), str(beautiful(self.x1)))
 		elif self.a > 0 and self.delta > 0:
-			print "y = 0 ⇒  x = %s ou x = %s\ny > 0 ⇒  x < %s ou x > %s\ny < 0 ⇒  %s < x < %s" % (str(beautiful(self.x1)), str(beautiful(self.x2)), str(beautiful(self.x2)), str(beautiful(self.x1)), str(beautiful(self.x2)), str(beautiful(self.x1)))
+			print "y = 0 ⇔  x = %s ou x = %s\ny > 0 ⇔  x < %s ou x > %s\ny < 0 ⇔  %s < x < %s" % (str(beautiful(self.x1)), str(beautiful(self.x2)), str(beautiful(self.x2)), str(beautiful(self.x1)), str(beautiful(self.x2)), str(beautiful(self.x1)))
 		elif self.a < 0 and self.delta > 0:
-			print "y = 0 ⇒  x = %s ou x = %s\ny > 0 ⇒  %s < x < %s\ny < 0 ⇒  x < %s ou x > %s" % (str(beautiful(self.x1)), str(beautiful(self.x2)), str(beautiful(self.x1)), str(beautiful(self.x2)), str(beautiful(self.x1)), str(beautiful(self.x2)))
+			print "y = 0 ⇔  x = %s ou x = %s\ny > 0 ⇔  %s < x < %s\ny < 0 ⇔  x < %s ou x > %s" % (str(beautiful(self.x1)), str(beautiful(self.x2)), str(beautiful(self.x1)), str(beautiful(self.x2)), str(beautiful(self.x1)), str(beautiful(self.x2)))
 		elif self.a > 0 and self.delta < 0:
-			print "y = 0 ⇒  x∌ℝ\ny > 0 ⇒  ∀ x∈ℝ\ny < 0 ⇒  x∌ℝ"
+			print "y = 0 ⇔  x∌ℝ\ny > 0 ⇔  ∀ x∈ℝ\ny < 0 ⇔  x∌ℝ"
 		else:
-			print "y = 0 ⇒  x∌ℝ\ny > 0 ⇒  x∌ℝ\ny < 0 ⇒  ∀ x∈ℝ"
+			print "y = 0 ⇔  x∌ℝ\ny > 0 ⇔  x∌ℝ\ny < 0 ⇔  ∀ x∈ℝ"
 
 
 class SegundoGrauDesconhecido(SegundoGrau):
@@ -257,9 +257,9 @@ class PrimeiroGrau(object):
 	def print_situacao(self):
 		"""Exibe as condições de ƒ(x) em função de x"""
 		if self.a > 0:
-			print "Se x < %s ⇒  ƒ(x) < 0\nSe x = %s ⇒  ƒ(x) = 0\nSe x > %s ⇒  ƒ(x) > 0" % (str(beautiful(self.zero)), str(beautiful(self.zero)), str(beautiful(self.zero)))
+			print "Se x < %s ⇔  ƒ(x) < 0\nSe x = %s ⇔  ƒ(x) = 0\nSe x > %s ⇔  ƒ(x) > 0" % (str(beautiful(self.zero)), str(beautiful(self.zero)), str(beautiful(self.zero)))
 		else:
-			print "Se x < %s ⇒  ƒ(x) > 0\nSe x = %s ⇒  ƒ(x) = 0\nSe x > %s ⇒  ƒ(x) < 0" % (str(beautiful(self.zero)), str(beautiful(self.zero)), str(beautiful(self.zero)))
+			print "Se x < %s ⇔  ƒ(x) > 0\nSe x = %s ⇔  ƒ(x) = 0\nSe x > %s ⇔  ƒ(x) < 0" % (str(beautiful(self.zero)), str(beautiful(self.zero)), str(beautiful(self.zero)))
 	
 	def print_inversa(self):
 		"Exibe a inversa da função"
